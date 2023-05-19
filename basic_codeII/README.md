@@ -1,6 +1,6 @@
 ### 기초 코드 작성 요령 II
 
-| 문제 분류 | 문제 | 문제 제목 | 정답 코드 |
+| 문제 분류 | 문제 | 문제 제목 | 코드 |
 | :--: | :--: | :--: | :--: |
 | 연습 문제 | 10871 | [X보다 작은 수](https://www.acmicpc.net/problem/10871) | [코드](https://github.com/sora0319/basic_algorithm_solved/blob/main/basic_codeII/code/No_1000.java) |
 | 기본 문제✔ | 1000 | [A+B](https://www.acmicpc.net/problem/1000) | [코드](https://github.com/sora0319/basic_algorithm_solved/blob/main/basic_codeII/code/No_10093.java) |
