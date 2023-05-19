@@ -1,4 +1,4 @@
-package basic_codeII;
+package basic_codeII.code;
 import java.io.*;
 import java.util.*;
 public class No_2587 {

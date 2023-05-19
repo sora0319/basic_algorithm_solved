@@ -1,8 +1,8 @@
-package basic_codeII;
+package basic_codeII.code;
 
 import java.io.*;
 
-public class No_2441 {
+public class No_2443 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -13,7 +13,7 @@ public class No_2441 {
             for(int j = 1; j <= N-i; j++){
                 bw.write(" ");
             }
-            for(int j = 1; j <= i; j++){
+            for(int j = 1; j <= 2*i-1; j++){
                 bw.write("*");
             }
             bw.write("\n");
