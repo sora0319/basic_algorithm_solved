@@ -5,6 +5,7 @@
 [바킹독님의 c++ 문제 및 코드](https://github.com/encrypted-def/basic-algo-lecture)   
 
 원래 문제들의 해설은 c++로 되어있지만 java로 풀어보는 중...
+어려운 문제에 대한 설명은 블로그에 자세히 남기고 있음
 
 
 | 목차 | 목록 | 문제 위치 |
