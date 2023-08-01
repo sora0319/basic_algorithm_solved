@@ -16,6 +16,7 @@ public class No_10808 {
             space = (int)w - 97;
             alphabet[space] += 1;
         }
+        //System.out.println(words[0] - 'a'); 계산 다른 방법
 
         for(int n : alphabet){
             bw.write(String.valueOf(n));
