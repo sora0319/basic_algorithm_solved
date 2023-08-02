@@ -12,7 +12,7 @@
 -----------
 | 파일이름 | 목록 | 문제 위치 |
 | :--: | :--: | :--: | :--: |
-| basic_codeII | [기초 코드 작성 요령 II]() | [해설링크](https://github.com/sora0319/basic_algorithm_solved/tree/main/basic_codeII) |
+| basic_codeII | [기초 코드 작성 요령 II]() | [푼 코드](https://github.com/sora0319/basic_algorithm_solved/tree/main/basic_codeII) |
 | Arrays | [배열]() | [목차]() |
 | OX02 | [배열]() | [목차]() |
 | OX02 | [배열]() | [목차]() |
