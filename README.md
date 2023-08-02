@@ -13,8 +13,8 @@
 
 | 파일이름 | 주제 | 문제 위치 |
 | :--: | :--: | :--: |
-| basic_codeII | 기초 코드 작성 요령 II | [코드 목록](https://github.com/sora0319/basic_algorithm_solved/tree/main/basic_codeII) |
-| Arrays | 배열 | [코드 목록](https://github.com/sora0319/basic_algorithm_solved/tree/main/Arrays) |
+| 01_Basic_codeII | 기초 코드 작성 요령 II | [코드 목록](https://github.com/sora0319/basic_algorithm_solved/tree/main/01_Basic_codeII) |
+| 02_Arrays | 배열 | [코드 목록](https://github.com/sora0319/basic_algorithm_solved/tree/main/02_Arrays) |
 | OX02 | [배열]() | [목차]() |
 | OX02 | [배열]() | [목차]() |
 | OX02 | [배열]() | [목차]() |
