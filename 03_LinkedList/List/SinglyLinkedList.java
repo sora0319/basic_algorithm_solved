@@ -71,5 +71,11 @@ public class SinglyLinkedList {
         return datas;
     }
 
+    public Object removeFirst(){
+        Object removeData = first.data;
+        first = first.next;
+        size --;
+        return removeData;
+    }
 
 }
