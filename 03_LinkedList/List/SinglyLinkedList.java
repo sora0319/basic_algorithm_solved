@@ -1,5 +1,7 @@
 package List;
 
+import java.util.ArrayList;
+
 public class SinglyLinkedList {
     private Node first;
     private Node last;
@@ -60,12 +62,14 @@ public class SinglyLinkedList {
     public String toString(){
         String datas = "[";
         Node f = first;
-        while(f != null){
+        while(f.next != null){
             String stored = String.valueOf(f.data);
             datas += stored + ", ";
             f = f.next;
         }
-        datas += "]";
+        datas += f.data + "]";
         return datas;
     }
+
+
 }
