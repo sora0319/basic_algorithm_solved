@@ -44,7 +44,7 @@ public class SinglyLinkedList {
         if(index == 0){
             addFirst(data);
         }
-        else if(index == size-1){
+        else if(index == size){
             addLast(data);
         }
         else{
@@ -78,4 +78,18 @@ public class SinglyLinkedList {
         return removeData;
     }
 
+    public Object remove(int index){
+        if(index == 0){
+            removeFirst();
+        }
+
+        Node f = first;
+        for(int i = 0; i < index-1; i++){
+            f = f.next;
+        }
+
+        Node removeNode = f.next;
+        f.next = removeNode.next;
+        return removeNode.data;
+    }
 }
