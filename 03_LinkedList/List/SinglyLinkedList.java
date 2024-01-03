@@ -1,7 +1,5 @@
 package List;
 
-import java.util.ArrayList;
-
 public class SinglyLinkedList {
     private Node first;
     private Node last;
@@ -107,5 +105,9 @@ public class SinglyLinkedList {
 
         size--;
         return targetData;
+    }
+
+    public  int size(){
+        return size;
     }
 }
