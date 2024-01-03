@@ -16,6 +16,14 @@ public class SinglyLinkedList {
         }
     }
 
+    private Node findNode(int index){
+        Node f = first;
+        for(int i = 0; i < index; i++){
+            f = f.next;
+        }
+        return f;
+    }
+
     public void addFirst(Object data){
         Node newNode = new Node(data);
         newNode.next = first;
@@ -48,10 +56,7 @@ public class SinglyLinkedList {
             addLast(data);
         }
         else{
-            Node f = first;
-            for(int i = 0; i < index-1; i++){
-                f = f.next;
-            }
+            Node f = findNode(index-1);
             Node newNode = new Node(data);
             newNode.next = f.next;
             f.next= newNode;
@@ -72,10 +77,17 @@ public class SinglyLinkedList {
     }
 
     public Object removeFirst(){
-        Object removeData = first.data;
+        Node targetNode = first;
+        Object targetData = targetNode.data;
         first = first.next;
+        targetNode = null;
+
+        if(first == null){
+            last = first;
+        }
+
         size --;
-        return removeData;
+        return targetData;
     }
 
     public Object remove(int index){
@@ -83,13 +95,17 @@ public class SinglyLinkedList {
             removeFirst();
         }
 
-        Node f = first;
-        for(int i = 0; i < index-1; i++){
-            f = f.next;
-        }
+        Node f = findNode(index-1);
+        Node targetNode = f.next;
+        f.next = targetNode.next;
 
-        Node removeNode = f.next;
-        f.next = removeNode.next;
-        return removeNode.data;
+        if(targetNode == last){
+            last = f;
+        }
+        Object targetData = targetNode.data;
+        targetNode = null;
+
+        size--;
+        return targetData;
     }
 }
