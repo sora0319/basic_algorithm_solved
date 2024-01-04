@@ -1,4 +1,4 @@
-package List;
+package List.code;
 
 public class SinglyLinkedList {
     private Node first;
