@@ -1,4 +1,4 @@
-package List.code;
+package ListCode;
 
 
 public class Main {
