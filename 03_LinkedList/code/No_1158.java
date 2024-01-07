@@ -16,7 +16,7 @@ public class No_1158 {
             numbers.add(i);
         }
 
-        ListIterator<Integer> iter = numbers.listIterator();;
+        ListIterator<Integer> iter = numbers.listIterator();
         int target = 0;
         bw.write("<");
         while (!numbers.isEmpty()) {
