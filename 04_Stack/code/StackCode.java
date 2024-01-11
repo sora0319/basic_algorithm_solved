@@ -1,6 +1,6 @@
 package code;
 
-public class Stack {
+public class StackCode {
 
     final int MX = 1000000;
     int [] dat = new int[MX];
