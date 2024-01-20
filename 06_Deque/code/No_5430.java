@@ -13,9 +13,9 @@ public class No_5430 {
         while(T-- > 0){
             String order = br.readLine();
             n = Integer.parseInt(br.readLine());
-
+            String input = br.readLine();
             if(n >0) {
-                String[] inputs = br.readLine().substring(1, n * 2).split(",");
+                String[] inputs = input.replaceAll("[^0-9,]", "").split(",");
                 for (String s : inputs) {
                     deque.offer(Integer.parseInt(s));
                 }
@@ -40,11 +40,25 @@ public class No_5430 {
                 }
             }
 
-            if(!error){
+            if (!error) {
                 bw.write("[");
-                for (int d : deque) {
-                    bw.write(String.valueOf());
+                while(deque.size() >1 ) {
+                    if (forward) {
+                        bw.write(String.valueOf(deque.pollFirst()));
+                    } else {
+                        bw.write(String.valueOf(deque.pollLast()));
+                    }
+                    bw.write(",");
                 }
+                if (!deque.isEmpty()) {
+                    bw.write(String.valueOf(deque.poll()));
+                }
+
+                bw.write("]");
+                bw.newLine();
+            } else {
+                bw.write("error");
+                bw.newLine();
             }
 
 
