@@ -22,9 +22,11 @@ public class No_4179 {
                 space[i][j] = input.charAt(j);
                 if(space[i][j] == 'J'){
                     moveQueue.offer(new Pair(i,j));
+                    escapeTime[i][j] = 1;
                 }
                 if(space[i][j] == 'F'){
                     fireQueue.offer(new Pair(i, j));
+                    fireTime[i][j] = 1;
                 }
             }
         }
@@ -43,23 +45,29 @@ public class No_4179 {
             }
         }
 
-        boolean escape = false;
+        int escape = 0;
         while(!moveQueue.isEmpty()){
             Pair target = moveQueue.poll();
             for(int i = 0; i < 4; i++) {
                 int moveX = target.x + dx[i];
                 int moveY = target.y + dy[i];
                 if (moveX < 0 || moveX >= R || moveY < 0 || moveY >= C) {
-                    escape = true;
+                    escape = escapeTime[target.x][target.y];
                     break;
                 }
-                if(fireTime[moveX][moveY] >= escapeTime[moveX][moveY] || space[moveX][moveY] == '#') continue;
+                if(fireTime[moveX][moveY] > 0 && fireTime[moveX][moveY] <= escapeTime[target.x][target.y] + 1) continue;
+                if(escapeTime[moveX][moveY] > 0 || space[moveX][moveY] == '#') continue;
                 moveQueue.offer(new Pair(moveX, moveY));
                 escapeTime[moveX][moveY] = escapeTime[target.x][target.y] + 1;
             }
-            if(escape) break;
+            if(escape>0) break;
         }
 
+        if (escape > 0) {
+            bw.write(String.valueOf(escape));
+        } else {
+            bw.write("IMPOSSIBLE");
+        }
 
 
         br.close();
