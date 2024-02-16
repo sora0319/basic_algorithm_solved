@@ -64,11 +64,11 @@ public class No_9466 {
         bw.flush();
         bw.close();
     }
-}
-class Pair{
-    int start, point;
-    Pair(int start, int point) {
-        this.start = start;
-        this.point = point;
+    static class Pair{
+        int start, point;
+        Pair(int start, int point) {
+            this.start = start;
+            this.point = point;
+        }
     }
 }
