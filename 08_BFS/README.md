@@ -20,8 +20,8 @@
 |  기본 문제  | 2468 | [안전 영역](https://www.acmicpc.net/problem/2468) |  |
 |  기본 문제  | 6593 | [상범 빌딩](https://www.acmicpc.net/problem/6593) |  |
 | *응용 문제✔ | 2206 | [벽 부수고 이동하기](https://www.acmicpc.net/problem/2206) |  |
-| 응용 문제✔  | 9466 | [텀 프로젝트](https://www.acmicpc.net/problem/9466) |  |
-| 응용 문제✔  | 2573 | [빙산](https://www.acmicpc.net/problem/2573) | [ |
+| *응용 문제✔ | 9466 | [텀 프로젝트](https://www.acmicpc.net/problem/9466) |  |
+| *응용 문제✔ | 2573 | [빙산](https://www.acmicpc.net/problem/2573) | [ |
 | 응용 문제✔  | 2146 | [다리 만들기](https://www.acmicpc.net/problem/2146) |  |
 | 응용 문제✔  | 13549 | [숨바꼭질 3](https://www.acmicpc.net/problem/13549) |  |
 | 응용 문제✔  | 1600 | [말이 되고픈 원숭이](https://www.acmicpc.net/problem/1600) |  |
