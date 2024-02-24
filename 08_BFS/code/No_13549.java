@@ -5,7 +5,10 @@ import java.util.*;
 
 public class No_13549 {
     static int[] dx = {-1, 1};
-    static int s, target;
+    static int MAX = 100_000 + 10;
+    static int[] time = new int[MAX];
+    static int[] vis = new int[MAX];
+
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -14,41 +17,42 @@ public class No_13549 {
         String[] inputs = br.readLine().split(" ");
         int start = Integer.parseInt(inputs[0]);
         int end = Integer.parseInt(inputs[1]);
-        int MAX = end * 2;
-        int[] time = new int[MAX];
 
-        queue.offer(start);
         time[start] = 1;
+        vis[start] = 2;
+        queue.offer(start);
+
         while (!queue.isEmpty()) {
-            s = queue.poll();
-            if(s == end) break;
-
-            target = s * 2;
-
-            while (0 < target && target < MAX) {
-                if(time[target] <= 0) {
-                    queue.offer(target);
-                    time[target] = time[s];
-                }
-                if(target == end) {
+            int target = queue.poll();
+            int teleport = target * 2;
+            while (0 < teleport && teleport < MAX) {
+                if(vis[teleport] == 2) break; // 이전에 순간이동을 한 장소일 경우
+                if(vis[teleport] != 1){
+                    time[teleport] = time[target];
+                    vis[teleport] = 2;
+                } // 한번도 방문하지 않은 위치인 경우
+                if(teleport == end){
                     queue.clear();
                     break;
                 }
-                target = target * 2;
+                queue.offer(teleport);
+                teleport = teleport * 2;
             }
 
             for (int i = 0; i < 2; i++) {
-                target = s + dx[i];
-                if(target >= MAX || target < 0) continue;
-                if(time[target] > 0) continue;
-                queue.offer(target);
-                time[target] = time[s] + 1;
-                if(target == end){
+                int move = target + dx[i];
+                if(0 > move || move >= MAX) continue;
+                if(vis[move] != 0) continue;
+                time[move] = time[target] + 1;
+                vis[move] = 1; // 1칸 이동했을때 표시 값
+                queue.offer(move);
+                if(teleport == end){
                     queue.clear();
                     break;
                 }
             }
         }
+
         bw.write(String.valueOf(time[end] - 1));
 
         br.close();
