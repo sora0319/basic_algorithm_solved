@@ -13,7 +13,7 @@ public class No_1074 {
         int r = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
 
-
+        bw.write(String.valueOf(grid(N, r, c)));
 
 
         br.close();
@@ -22,12 +22,12 @@ public class No_1074 {
     }
 
     private static int grid(int n, int r, int c) {
-        int middle = 1 << (n-1);
         if(n == 0) return 0;
-        if(middle > r && middle > c) return grid(n - 1, r, c);
-        if(middle > r && 1 << (n-1) <= c) return  + grid(n-1, r, c);
-        if(middle <= r && 1 << (n-1) > c);
-        if(middle <= r && 1<< (n-1) <= c);
+        int middle = 1 << (n-1);
+        if(middle > r && middle > c) return grid(n - 1, r, c); // 현재 크기보다 작은 사각형에서의 위치
+        if(middle > r && middle <= c) return middle * middle + grid(n-1, r, c - middle); // 1사분면값 + 현재 크기보다 작은 사각형에서의 위치
+        if(middle <= r && middle > c) return 2 * middle * middle + grid(n-1, r - middle, c); // 1,2사분면값 + 현재 크기보다 작은 사각형에서의 위치
+        if(middle <= r && middle <= c)return 3 * middle * middle + grid(n-1, r - middle, c - middle); // 1,2,3사분면값 + 현재 크기보다 작은 사각형에서의 위치
         return 0;
     }
 }
