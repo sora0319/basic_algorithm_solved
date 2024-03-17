@@ -37,9 +37,10 @@ public class No_1780 {
     }
     private static void counting(int row_S, int row_E, int col_S, int col_E) {
         boolean same = true;
+        int target = paper[row_S][col_S];
         for (int i = row_S; i <= row_E; i++) {
-            for (int j = col_S; j < col_E; j++) {
-                if (paper[i][j] != paper[i][j + 1]) {
+            for (int j = col_S; j <= col_E; j++) {
+                if (target != paper[i][j]) {
                     same = false;
                     break;
                 }
