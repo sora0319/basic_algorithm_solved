@@ -42,6 +42,7 @@ public class No_15666 {
 				createSeq(order + 1, i);
 			}
 		}
+		seqeunce[order] = 0;
 	}
 
 }
