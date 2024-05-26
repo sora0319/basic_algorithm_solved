@@ -13,7 +13,7 @@ public class No_16987 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
+		int N = Integer.parseInt(st.nextToken());
 		
 		br.close();
 		bw.flush();
