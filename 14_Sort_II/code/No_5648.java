@@ -10,28 +10,27 @@ public class No_5648 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
-        List<Integer> numbers = new ArrayList<>();
+        List<Long> numbers = new ArrayList<>();
 
-        while(N-- != 0){
-            while(st.hasMoreTokens()){
+        while(N-- > 0){
+            if(!st.hasMoreTokens()) st = new StringTokenizer(br.readLine());
+            if(st.hasMoreTokens()){
                 String original = st.nextToken();
                 int length = original.length();
-                int reverseCnt = 0;
+                long reverseCnt = 0;
                 for (int i = length-1; i >= 0; i--) {
-                    reverseCnt += (original.charAt(i) - '0') * 10 * i;
+                    reverseCnt += (long) ((original.charAt(i) - '0') * Math.pow(10, i));
                 }
                 numbers.add(reverseCnt);
             }
-            st = new StringTokenizer(br.readLine());
         }
 
         Collections.sort(numbers);
 
-        for (int i : numbers) {
+        for (long i : numbers) {
             bw.write(String.valueOf(i));
             bw.newLine();
         }
-
 
         br.close();
         bw.flush();
