@@ -10,15 +10,15 @@ public class No_5648 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
-        List<Integer> numbers = new ArrayList<>();
+        List<Long> numbers = new ArrayList<>();
 
         while(N-- != 0){
             while(st.hasMoreTokens()){
                 String original = st.nextToken();
                 int length = original.length();
-                int reverseCnt = 0;
-                for (int i = length-1; i >= 0; i--) {
-                    reverseCnt += (original.charAt(i) - '0') * 10 * i;
+                long reverseCnt = 0;
+                for (int i = length; i >= 1; i--) {
+                    reverseCnt += (original.charAt(i-1) - '0') * (long)10 * i;
                 }
                 numbers.add(reverseCnt);
             }
@@ -27,7 +27,7 @@ public class No_5648 {
 
         Collections.sort(numbers);
 
-        for (int i : numbers) {
+        for (long i : numbers) {
             bw.write(String.valueOf(i));
             bw.newLine();
         }
