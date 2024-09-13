@@ -12,17 +12,17 @@ public class No_5648 {
         int N = Integer.parseInt(st.nextToken());
         List<Long> numbers = new ArrayList<>();
 
-        while(N-- != 0){
-            while(st.hasMoreTokens()){
+        while(N-- > 0){
+            if(!st.hasMoreTokens()) st = new StringTokenizer(br.readLine());
+            if(st.hasMoreTokens()){
                 String original = st.nextToken();
                 int length = original.length();
                 long reverseCnt = 0;
-                for (int i = length; i >= 1; i--) {
-                    reverseCnt += (original.charAt(i-1) - '0') * (long)10 * i;
+                for (int i = length-1; i >= 0; i--) {
+                    reverseCnt += (long) ((original.charAt(i) - '0') * Math.pow(10, i));
                 }
                 numbers.add(reverseCnt);
             }
-            st = new StringTokenizer(br.readLine());
         }
 
         Collections.sort(numbers);
@@ -31,7 +31,6 @@ public class No_5648 {
             bw.write(String.valueOf(i));
             bw.newLine();
         }
-
 
         br.close();
         bw.flush();
