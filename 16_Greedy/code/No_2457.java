@@ -34,11 +34,13 @@ public class No_2457 {
         int[] pointEndDate = {3,1};
         for (int i = 0; i < N; i++) {
             Flower flower = flowers.get(i);
-            if (flower.startMonth >= pointEndDate[0] && flower.startMonth <= endDate[0]) {
+            if(pointEndDate[0] >= endDate[0] && pointEndDate[1] >= endDate[1]) break;
+            if(!( flower.startMonth<= pointEndDate[0] && flower.startDay <= pointEndDate[1]) ) break;
 
-            }
+
         }
 
+        bw.write(String.valueOf(count));
         br.close();
         bw.flush();
         bw.close();
