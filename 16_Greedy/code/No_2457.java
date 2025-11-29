@@ -36,8 +36,17 @@ public class No_2457 {
             Flower flower = flowers.get(i);
             if(pointEndDate[0] >= endDate[0] && pointEndDate[1] >= endDate[1]) break;
             if(!( flower.startMonth<= pointEndDate[0] && flower.startDay <= pointEndDate[1]) ) break;
+            if(flower.endMonth < pointEndDate[0] && flower.endDay < pointEndDate[1]){
+                count++;
+                pointEndDate[0] = flower.endMonth;
+                pointEndDate[1] = flower.endDay;
+            }
 
+        }
+        bw.write(String.valueOf(count));
 
+        if(pointEndDate[0] <= endDate[0] && pointEndDate[1] <= endDate[1]){
+            count = 0;
         }
 
         bw.write(String.valueOf(count));
