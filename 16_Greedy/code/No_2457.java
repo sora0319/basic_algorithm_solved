@@ -19,6 +19,7 @@ public class No_2457 {
         List<Flower> flowers = new ArrayList<>();
         int count = 0;
 
+
         for (int i = 0; i < N; i++) {
             String[] inputs = br.readLine().split(" ");
             Flower flower = new Flower(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1]),
@@ -27,26 +28,32 @@ public class No_2457 {
             flowers.add(flower);
         }
 
-        flowers.sort(Comparator.comparingInt((Flower f) -> f.endMonth).thenComparingInt(f -> f.endDay)
-                .thenComparingInt(f -> f.startMonth).thenComparingInt(f -> f.startDay));
+        flowers.sort((f1, f2) -> {
+            if (f1.startMonth != f2.startMonth) {
+                return Integer.compare(f1.startMonth, f2.startMonth);
+            }
+
+            if(f1.startDay != f2.startDay) {
+                return Integer.compare(f1.startDay, f2.startDay);
+            }
+
+            if(f1.endMonth != f2.endMonth) {
+                return Integer.compare(f2.endMonth, f1.endMonth);
+            }
+
+            return Integer.compare(f2.endDay, f1.endDay);
+        });
+
 
         int[] endDate = {11,30};
         int[] pointEndDate = {3,1};
+
         for (int i = 0; i < N; i++) {
             Flower flower = flowers.get(i);
-            if(pointEndDate[0] >= endDate[0] && pointEndDate[1] >= endDate[1]) break;
-            if(!( flower.startMonth<= pointEndDate[0] && flower.startDay <= pointEndDate[1]) ) break;
-            if(flower.endMonth < pointEndDate[0] && flower.endDay < pointEndDate[1]){
-                count++;
-                pointEndDate[0] = flower.endMonth;
-                pointEndDate[1] = flower.endDay;
-            }
 
-        }
-        bw.write(String.valueOf(count));
+            // 날짜를 모두 비교하기
 
-        if(pointEndDate[0] <= endDate[0] && pointEndDate[1] <= endDate[1]){
-            count = 0;
+
         }
 
         bw.write(String.valueOf(count));
