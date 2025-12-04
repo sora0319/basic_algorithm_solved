@@ -20,41 +20,7 @@ public class No_2457 {
         int count = 0;
 
 
-        for (int i = 0; i < N; i++) {
-            String[] inputs = br.readLine().split(" ");
-            Flower flower = new Flower(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1]),
-                    Integer.parseInt(inputs[2]), Integer.parseInt(inputs[3]));
 
-            flowers.add(flower);
-        }
-
-        flowers.sort((f1, f2) -> {
-            if (f1.startMonth != f2.startMonth) {
-                return Integer.compare(f1.startMonth, f2.startMonth);
-            }
-
-            if(f1.startDay != f2.startDay) {
-                return Integer.compare(f1.startDay, f2.startDay);
-            }
-
-            if(f1.endMonth != f2.endMonth) {
-                return Integer.compare(f2.endMonth, f1.endMonth);
-            }
-
-            return Integer.compare(f2.endDay, f1.endDay);
-        });
-
-
-        int[] endDate = {11,30};
-        int[] pointEndDate = {3,1};
-
-        for (int i = 0; i < N; i++) {
-            Flower flower = flowers.get(i);
-
-            // 날짜를 모두 비교하기
-
-
-        }
 
         bw.write(String.valueOf(count));
         br.close();
