@@ -20,21 +20,27 @@ public class No_2003 {
         inputs = br.readLine().split(" ");
 
         for(int i = 1; i < N+1; i++){
-            numbers[i] = Integer.parseInt(inputs[i]);
+            numbers[i] = Integer.parseInt(inputs[i-1]);
         }
 
-        int start  = 0, end = 0;
-        int total = 0;
+        int start  = 0, end = 1;
+        int total = numbers[end];
         int count = 0;
         while(start <= end){
-            if(end > N || start > N) break;
-            if(start == end){
-
+            if(total > M){
+                start++;
+                total -= numbers[start];
+                continue;
             }
-
+            if(total == M){
+                count++;
+            }
+            end++;
+            if(end > N) break;
+            total += numbers[end];
         }
 
-
+        bw.write(String.valueOf(count));
         br.close();
         bw.flush();
         bw.close();
