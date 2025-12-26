@@ -39,25 +39,59 @@ public class No_20366 {
         int minGap = 1200;
 
         for (int savedKey : snowMans.keySet()) {
+            List<Set<Integer>> firstSnow = snowMans.get(savedKey);
+            Set<Integer> back = null;
+            boolean isDuplicate = false;
+            boolean isFind = false;
+
+            if(firstSnow.size() > 1){
+                for(Set<Integer> first : firstSnow){
+                    for(Set<Integer> second : firstSnow){
+                        for(int snow : first){
+                            if(second.contains(snow)){
+                                isDuplicate = true;
+                                break;
+                            }
+                        }
+                        if(!isDuplicate){
+                            minGap = 0;
+                            isFind = true;
+                            break;
+                        }
+                        isDuplicate = false;
+
+                        if(isFind) break;
+                    }
+                }
+            }
+
             if(backKey == 0){
                 backKey = savedKey;
                 continue;
             }
 
             if (Math.abs(savedKey - backKey) < minGap) {
-                List<Set<Integer>> firstSnow = snowMans.get(savedKey);
                 List<Set<Integer>> secondSnow = snowMans.get(backKey);
 
-                boolean isFind = false;
                 for(Set<Integer> first : firstSnow){
                     for(Set<Integer> second : secondSnow){
-                        if(first.equals(second)) continue;
-                        minGap = Math.abs(savedKey - backKey);
-                        isFind = true;
-                        break;
+
+                        for(int snow : second){
+                            if(first.contains(snow)){
+                                isDuplicate = true;
+                                break;
+                            }
+                        }
+                        if(!isDuplicate){
+                            minGap = Math.abs(savedKey - backKey);
+                            isFind = true;
+                            break;
+                        }
+                        isDuplicate = false;
                     }
                     if(isFind) break;
                 }
+
             }
             backKey = savedKey;
         }
