@@ -8,7 +8,7 @@ public class No_20366 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        Map<Integer,List<Set<Integer>>> snowMans = new TreeMap<>();
+        List<int[]> snowMan = new ArrayList<>();
 
         int N = Integer.parseInt(br.readLine());
         int[] snowballs = new int[N];
@@ -18,85 +18,36 @@ public class No_20366 {
             snowballs[i] = Integer.parseInt(inputs[i]);
         }
 
+
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
-                int height = snowballs[i] + snowballs[j];
-                if(!snowMans.containsKey(height)){
-                    List<Set<Integer>> snows = new ArrayList<>();
-                    snowMans.put(height, snows);
-                }
-
-                List<Set<Integer>> savedSnow = snowMans.get(height);
-                Set<Integer> balls = new HashSet<>();
-                balls.add(i);
-                balls.add(j);
-
-                savedSnow.add(balls);
+                int[] balls = new int[2];
+                balls[0] = i;
+                balls[1] = j;
+                snowMan.add(balls);
             }
         }
 
-        int backKey = 0;
-        int minGap = 1200;
+        /*
+            하나하나씩 비교를 하는데,
+            같은 위치의 눈덩이가 눈사람에 있으면 넘어간다
+         */
+        int minHiehgt = 1200;
+        for (int first = 0; first < snowMan.size(); first++) {
+            for (int second = first + 1; second < snowMan.size(); second++) {
+                int[] firstSnowMan = snowMan.get(first);
+                int[] secondSnowMan = snowMan.get(second);
 
-        for (int savedKey : snowMans.keySet()) {
-            List<Set<Integer>> firstSnow = snowMans.get(savedKey);
-            Set<Integer> back = null;
-            boolean isDuplicate = false;
-            boolean isFind = false;
+                int firstHeight = firstSnowMan[0] + firstSnowMan[1];
+                int secondHeight = secondSnowMan[0] + secondSnowMan[1];
 
-            if(firstSnow.size() > 1){
-                for(Set<Integer> first : firstSnow){
-                    for(Set<Integer> second : firstSnow){
-                        for(int snow : first){
-                            if(second.contains(snow)){
-                                isDuplicate = true;
-                                break;
-                            }
-                        }
-                        if(!isDuplicate){
-                            minGap = 0;
-                            isFind = true;
-                            break;
-                        }
-                        isDuplicate = false;
-
-                        if(isFind) break;
-                    }
+                if (minHiehgt > Math.abs(firstHeight - secondHeight)) {
+                    if(firstSnowMan[0] == secondSnowMan[0] || firstSnowMan[0] == secondSnowMan[1]) break;
                 }
             }
-
-            if(backKey == 0){
-                backKey = savedKey;
-                continue;
-            }
-
-            if (Math.abs(savedKey - backKey) < minGap) {
-                List<Set<Integer>> secondSnow = snowMans.get(backKey);
-
-                for(Set<Integer> first : firstSnow){
-                    for(Set<Integer> second : secondSnow){
-
-                        for(int snow : second){
-                            if(first.contains(snow)){
-                                isDuplicate = true;
-                                break;
-                            }
-                        }
-                        if(!isDuplicate){
-                            minGap = Math.abs(savedKey - backKey);
-                            isFind = true;
-                            break;
-                        }
-                        isDuplicate = false;
-                    }
-                    if(isFind) break;
-                }
-
-            }
-            backKey = savedKey;
         }
 
-        bw.write(String.valueOf(minGap));
+
         br.close();
         bw.flush();
         bw.close();
